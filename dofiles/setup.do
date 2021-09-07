@@ -14,6 +14,14 @@ git branch -M main
 git remote add origin https://github.com/BenjaminRuehl/Stata-GitHub-Integration-Trial.git
 git push -u origin main
 
+* Add remaining folders and their contents
+! git remote add origin "https://github.com/BenjaminRuehl/Stata-GitHub-Integration-Trial.git"
+
+! git status
+! git add --all
+! git commit -m "adding folders"
+! git push
+
 * Push an existing repository from the command line
 git remote add origin https://github.com/BenjaminRuehl/Stata-GitHub-Integration-Trial.git
 git branch -M main
@@ -118,23 +126,36 @@ graph export ./figures/scatter_deaths_cases.png, replace wid(1000)
 * NOTE: the integration / communication of Stata with GitHub using Stata's command line only works if Software "Git" is installed!
 
 * Create a new repository on the command line
-! echo "# Stata-GitHub-Integration-new" >> README.md
+! echo "# Stata-GitHub-Integration-Trial" >> README.md
 ! git init
 ! git add README.md
 ! git commit -m "first commit"
 ! git branch -M main
-! git remote add origin https://github.com/BenjaminRuehl/Stata-GitHub-Integration-new.git
+! git remote add origin https://github.com/BenjaminRuehl/Stata-GitHub-Integration-Trial.git
 ! git push -u origin main
 
 * Add remaining folders and their contents
-! git remote add origin "https://github.com/BenjaminRuehl/Stata-GitHub-Integration-new.git"
+! git remote add origin "https://github.com/BenjaminRuehl/Stata-GitHub-Integration-Trial.git"
 
 ! git status
 ! git add --all
 ! git commit -m "adding folders"
 ! git push
 
+* Define DOS batch (.bat) file in Stata
+file close _all																										// close all open files
+
+file open git using mygit.bat, write replace																		// open a new batch file called mygit.bat and give it the handle git. This is just a reference name in case several text files are open
+																													// in next few lines, write a bunch of git syntax that we want to run. Those commands will be executed sequentially in the DOS shell (therefore no need to worry about Stata-specific issues like use of "!" or single quotations)
+file write git "git remote add origin " `"""' "https://github.com/BenjaminRuehl/Stata-GitHub-Integration-Trial.git" `"""' _n
+file write git "git add --all" _n
+file write git "git commit -m "
+file write git `"""' "minor fixes" `"""' _n
+file write git "git push" _n
+
+file close git																										// now the .bat file can be viewed in a text editor and executed in Stata simply typing "! mygit.bat"
+
 * Push an existing repository from the command line
-! git remote add origin https://github.com/BenjaminRuehl/Stata-GitHub-Integration-new.git
+! git remote add origin https://github.com/BenjaminRuehl/Stata-GitHub-Integration-Trial.git
 ! git branch -M main
 ! git push -u origin main
