@@ -1,2 +1,2 @@
-"# Stata-GitHub-Integration-new" 
-"# Stata-GitHub-Integration-new" 
+This repository is a trial of the Stata-GitHub Integration.
+Stata-GitHub-Integration-Trial
