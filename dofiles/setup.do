@@ -150,7 +150,7 @@ file open git using mygit.bat, write replace																		// open a new batc
 file write git "git remote add origin " `"""' "https://github.com/BenjaminRuehl/Stata-GitHub-Integration-Trial.git" `"""' _n
 file write git "git add --all" _n
 file write git "git commit -m "
-file write git `"""' "minor fixes" `"""' _n
+file write git `"""' "v1 added on 07092021" `"""' _n
 file write git "git push" _n
 
 file close git																										// now the .bat file can be viewed in a text editor and executed in Stata simply typing "! mygit.bat"
