@@ -4,6 +4,6 @@ This repository is a trial of the Stata-GitHub Integration called "Stata-GitHub-
 
 ## Sub-Header
 
-with some
+with some bullet points
 * bullet point A
 * bullet point B
